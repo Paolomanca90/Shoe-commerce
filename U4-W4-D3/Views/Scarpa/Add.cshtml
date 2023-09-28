@@ -1,0 +1,83 @@
+﻿@model U4_W4_D3.Models.Scarpa
+
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2 class="text-center p-4">Inserisci un nuovo prodotto</h2>
+
+@if(ViewBag.Messaggio != null)
+            {
+                <div class="alert alert-danger w-25 mx-auto text-center m-4">ViewBag.Messaggio</div>
+            }
+
+@using (Html.BeginForm("Add", "Scarpa", FormMethod.Post, new { @enctype = "multipart/form-data" })) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal p-5 w-25 mx-auto border border-3 border-info rounded-2">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group mb-3">
+        @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label fw-bold" })
+        <div>
+            @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group mb-3">
+        @Html.LabelFor(model => model.Prezzo, htmlAttributes: new { @class = "control-label fw-bold" })
+        <div>
+            @Html.EditorFor(model => model.Prezzo, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Prezzo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group mb-3">
+        @Html.LabelFor(model => model.Descrizione, htmlAttributes: new { @class = "control-label fw-bold" })
+        <div>
+            @Html.EditorFor(model => model.Descrizione, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Descrizione, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group mb-3">
+        @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label fw-bold" })
+        <div>
+            @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control", type = "file" } })
+            @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group mb-3">
+        @Html.LabelFor(model => model.Image1, htmlAttributes: new { @class = "control-label fw-bold" })
+        <div>
+            @Html.EditorFor(model => model.Image1, new { htmlAttributes = new { @class = "form-control", type = "file" } })
+            @Html.ValidationMessageFor(model => model.Image1, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group mb-4">
+        @Html.LabelFor(model => model.Image2, htmlAttributes: new { @class = "control-label fw-bold" })
+        <div>
+            @Html.EditorFor(model => model.Image2, new { htmlAttributes = new { @class = "form-control", type = "file" } })
+            @Html.ValidationMessageFor(model => model.Image2, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group mb-3">
+        @Html.LabelFor(model => model.Disponibile , htmlAttributes: new { @class = "control-label fw-bold" })
+        <div>
+            @Html.CheckBoxFor(model => model.Disponibile, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Disponibile, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="text-center">
+            <input type="submit" value="Aggiungi" class="btn btn-primary w-75 fw-semibold" />
+        </div>
+    </div>
+</div>
+}
+

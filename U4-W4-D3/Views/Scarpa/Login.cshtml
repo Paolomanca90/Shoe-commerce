@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-primary text-center w-25 mx-auto">@ViewBag.ErrorMessage</div>
+}
+<div class="min-vh-100 d-flex justify-content-center align-items-center">
+    @using (Html.BeginForm("Login", "Scarpa", FormMethod.Post,new {@class= "w-50"}))
+    {
+        <div class="p-5 border-end border-3 border-info">
+            <h2 class="text-center text-info pb-3 fs-1">Bentornato</h2>
+            <div class="p-4 border border-2 border-info mx-auto rounded-4" style="background: #134b5f">
+                <div class="form-group text-center mb-3">
+                    @Html.Label("Username", new { @class = "control-label d-block pb-2 text-white fw-bold fs-4" })
+                    @Html.TextBox("UsernameL", "", new { @class = "form-control d-inline fw-semibold" })
+                </div>
+                <div class="form-group text-center mb-4">
+                    @Html.Label("Password", new { @class = "control-label d-block pb-2 text-white fw-bold fs-4" })
+                    @Html.TextBox("PasswordL", "", new { @class = "form-control d-inline fw-semibold" })
+                </div>
+                <div class="form-group">
+                    <div class="text-center">
+                        <input type="submit" value="Accedi" class="btn btn-info w-50 text-white fw-bold fs-4" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    @using (Html.BeginForm("Register", "Scarpa", FormMethod.Post, new { @class = "w-50" }))
+    {
+        <div class="p-5">
+            <h2 class="text-center text-info pb-3 fs-1">Diventa dei nostri</h2>
+            <div class="p-4 border border-2 border-info mx-auto rounded-4" style="background: #134b5f">
+                <div class="form-group text-center mb-3">
+                    @Html.Label("Username", new { @class = "control-label d-block pb-2 text-white fw-bold fs-4" })
+                    @Html.TextBox("UsernameR", "", new { @class = "form-control d-inline fw-semibold" })
+                </div>
+                <div class="form-group text-center mb-4">
+                    @Html.Label("Password", new { @class = "control-label d-block pb-2 text-white fw-bold fs-4" })
+                    @Html.TextBox("PasswordR", "", new { @class = "form-control d-inline fw-semibold" })
+                </div>
+                <div class="form-group">
+                    <div class="text-center">
+                        <input type="submit" value="Registrati" class="btn btn-info w-50 text-white fw-bold fs-4" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

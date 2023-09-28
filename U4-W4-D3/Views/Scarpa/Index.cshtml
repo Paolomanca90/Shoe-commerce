@@ -1,0 +1,51 @@
+﻿@using U4_W4_D3.Models
+
+@{
+    ViewBag.Title = "Index";
+
+    <link rel="stylesheet" href="~/Content/style.css">
+
+}
+
+<main>
+    <div class="content">
+        <h2>Benvenuto su Scarpe & Co.</h2>
+        <p>Solo il meglio per le tue prestazioni sportive su ogni tipo di terreno.</p>
+        <ul class="counter">
+            <li>
+                <h3><i class="fa-solid fa-truck-fast"></i>48h</h3>
+                <span>Consegna rapida</span>
+            </li>
+            <li>
+                <h3><i class="fa-solid fa-list-ol"></i>30+</h3>
+                <span>Marche</span>
+            </li>
+        </ul>
+        @if (User.Identity.Name == "")
+        {
+            <a class="btn" href="Scarpa/Login">Accedi <i class="fa-solid fa-arrow-right"></i></a>
+        }
+    </div>
+
+    <div class="swiper-container">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                @foreach (Scarpa s in Model)
+                {
+                    <div class="swiper-slide" style="background-image: url('@Url.Content("~/Content/Img/" + s.Image)'); background-size: cover; background-position: center">
+                        <span>top quality</span>
+                        <div class="slide-content">
+                            <h3><a href="~/Scarpa/Detail/@s.IdProdotto" class="text-dark">@s.Nome</a></h3>
+                            <p>@s.Prezzo.ToString("C")</p>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <div class="circle"></div>
+    </div>
+</main>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js'></script>
+<script src="~/Scripts/script.js"></script>

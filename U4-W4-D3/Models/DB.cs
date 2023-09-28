@@ -61,12 +61,12 @@ namespace U4_W4_D3.Models
             return userList;
         }
 
-        public static void insertUser(string UsernameL, string PasswordL)
+        public static void insertUser(string UsernameR, string PasswordR)
         {
             SqlCommand cmd = new SqlCommand("Insert INTO Utenti values(@Username, @Password)", conn);
             conn.Open();
-            cmd.Parameters.AddWithValue("Username", UsernameL);
-            cmd.Parameters.AddWithValue("Password", UsernameL);
+            cmd.Parameters.AddWithValue("Username", UsernameR);
+            cmd.Parameters.AddWithValue("Password", PasswordR);
             cmd.ExecuteNonQuery();
             conn.Close();
         }
